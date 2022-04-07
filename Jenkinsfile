@@ -6,26 +6,23 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build (not main)') {
-            when {
-                not {
-                    branch 'main'
-                }
-            }
+        stage('Build') {
             steps {
                 sh 'docker build -t chew01/kitsuiro-landing-page . --no-cache'
-                sh 'docker rmi -f chew01/kitsuiro-landing-page'
             }
         }
-        stage('Build (main)') {
+        stage('Deploy') {
             when {
-                branch 'main'
+                tag { "release-*" }
             }
             steps {
-                sh 'docker build -t chew01/kitsuiro-landing-page . --no-cache'
                 withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
                     sh 'docker push chew01/kitsuiro-landing-page:latest'
                 }
+            }
+        }
+        stage('Cleanup') {
+            steps {
                 sh 'docker rmi -f chew01/kitsuiro-landing-page'
             }
         }
