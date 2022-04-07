@@ -3,10 +3,6 @@ pipeline {
         docker { image 'node:lts-alpine3.15' }
     }
     stages {
-        stage('Initialize'){
-            def dockerHome = tool 'myDocker'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         stage('Checkout') {
             steps {
                 checkout scm
