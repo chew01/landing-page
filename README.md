@@ -8,7 +8,7 @@ You can check out the live page here at [kitsuiro.com](https://kitsuiro.com)!
 
 ## Concepts
 
-There is not much to say about concepts, considering that this is just a static page.
+There's not much to say about concepts, considering that this is just a static page.
 
 ### Frontend/UI
 
