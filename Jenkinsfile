@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                tag { "release-*" }
+                tag "release-*"
             }
             steps {
                 withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
