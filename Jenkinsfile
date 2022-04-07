@@ -14,5 +14,4 @@ pipeline {
       sh 'docker build -t kitsuiro-landing-page --no-cache .'
     }
   }
-
 }
