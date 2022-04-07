@@ -1,20 +1,23 @@
 pipeline {
-  agent none
-  stages {
-    stage('Environment') {
-      agent node
-      steps {
-        sh 'git --version'
-        echo "Branch: ${env.BRANCH_NAME}"
-        sh 'docker -v'
-        sh 'printenv'
-      }
+    agent {
+        docker { image: 'node:lts-alpine3.15'}
     }
-    stage('Deploy') {
-      agent node
-      steps {
-        sh 'docker build -t kitsuiro-landing-page --no-cache .'
-      }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Environment check') {
+            steps {
+                sh 'git --version'
+                sh 'docker -v'
+            }
+        }
+        stage('Build') {
+            sh 'docker build -t chew01/kitsuiro-landing-page --no-cache'
+            sh 'docker push chew01/kitsuiro-landing-page:latest'
+            sh 'docker rmi chew01/kitsuiro-landing-page'
+        }
     }
-  }
 }
