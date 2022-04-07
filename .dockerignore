@@ -3,4 +3,5 @@
 LICENSE
 README.md
 Dockerfile
+Jenkinsfile
 node_modules
