@@ -1,6 +1,6 @@
 # Landing Page
 
-![Build Status](https://jenkins.kitsuiro.com/job/Kitsuiro-Landing-Page/job/main/badge/icon)
+[![Build Status](https://jenkins.kitsuiro.com/buildStatus/icon?job=Kitsuiro-Landing-Page%2Fmain)](https://jenkins.kitsuiro.com/job/Kitsuiro-Landing-Page/job/main/)
 
 This project is a landing page for my personal domain created with React and Tailwind V3.
 
