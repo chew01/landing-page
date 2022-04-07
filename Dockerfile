@@ -10,4 +10,5 @@ FROM nginx:1.21.6-alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=build-stage /app/build .
+EXPOSE 812
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
