@@ -8,12 +8,6 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Environment check') {
-            steps {
-                sh 'git --version'
-                sh 'docker -v'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'docker build -t chew01/kitsuiro-landing-page --no-cache'
