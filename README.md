@@ -4,7 +4,7 @@
 
 This project is a landing page for my personal domain created with React and Tailwind V3.
 
-You can check out the live page here at [kitsuiro.com](https://kitsuiro.com)!
+You can check out the live page at [kitsuiro.com](https://kitsuiro.com)!
 
 ## Concepts
 
