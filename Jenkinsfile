@@ -8,11 +8,22 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'docker build -t chew01/kitsuiro-landing-page . --no-cache'
+            }
+        }
+        stage('Deploy') {
+            when {
+                tag "release-*"
+            }
+            steps {
                 withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
-                    sh 'docker build -t chew01/kitsuiro-landing-page . --no-cache'
                     sh 'docker push chew01/kitsuiro-landing-page:latest'
-                    sh 'docker rmi -f chew01/kitsuiro-landing-page'
                 }
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh 'docker rmi -f chew01/kitsuiro-landing-page'
             }
         }
     }
