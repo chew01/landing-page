@@ -17,7 +17,7 @@ function Nav(props: NavProps) {
       wrapperTag={'nav' as any}
       visible={titleOver}
     >
-      <Link title="Portfolio" href="https://chew01.github.io/" icon={FaBook} />
+      <Link title="Portfolio" href="https://dchew.kitsuiro.com/" icon={FaBook} />
       <Link title="Resume" href="https://fs.kitsuiro.com/docs/CV_Daniel.pdf" icon={FaFilePdf} />
       <Link title="Github" href="https://github.com/chew01" icon={FaGithub} />
       <Link title="LinkedIn" href="https://www.linkedin.com/in/chewjunheng/" icon={FaLinkedin} />
